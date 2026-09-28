@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_9f62e05a24522d01fa64e80faf1beec9 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-textpath@1.2.3/leaflet.textpath.min.js"></script>
+</head>
+<body>
+    
+    
+<style>
+.leaflet-tooltip.location-label {
+    background: transparent; border: none; border-radius: 0; box-shadow: none;
+    color: #4A1010; font-size: 11px; font-weight: 600; padding: 0;
+    white-space: nowrap;
+    text-shadow: -1px -1px 0 rgba(255,255,255,.9),  1px -1px 0 rgba(255,255,255,.9),
+                 -1px  1px 0 rgba(255,255,255,.9),  1px  1px 0 rgba(255,255,255,.9);
+}
+.leaflet-tooltip.location-label::before { display: none; }
+</style>
+    
+            <div class="folium-map" id="map_9f62e05a24522d01fa64e80faf1beec9" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_9f62e05a24522d01fa64e80faf1beec9 = L.map(
+                "map_9f62e05a24522d01fa64e80faf1beec9",
+                {
+                    center: [40.0, 30.0],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 4,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_e0cf51cdce89b6aa4c761857658955f1 = L.tileLayer(
+                "https://server.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x}",
+                {"attribution": "Esri | Sources: ESRI, DeLorme, NAVTEQ", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_e0cf51cdce89b6aa4c761857658955f1.addTo(map_9f62e05a24522d01fa64e80faf1beec9);
+        
+    
+            var feature_group_e8389aa01cc5ad7a9198fdcfe4bc4b19 = L.featureGroup(
+                {}
+            );
+        
+    
+            var poly_line_798c7ee510b162b6cd6741f7fbf40043 = L.polyline(
+                [[33.509722, 36.309167], [33.59592637202268, 36.773194440831766], [33.68963919243856, 37.23428627637051], [33.79086046124763, 37.69244250661626], [33.899590178449905, 38.147663131569], [34.015828344045374, 38.59994815122874], [34.13957495803402, 39.04929756559546], [34.27083002041587, 39.49571137466919], [34.40959353119093, 39.939189578449906], [34.55586549035917, 40.37973217693762], [34.70964589792061, 40.81733917013233], [34.87093475387523, 41.25201055803403], [35.03973205822306, 41.68374634064273], [35.21603781096408, 42.112546517958414], [35.3998520120983, 42.538411089981096], [35.59117466162571, 42.961340056710775], [35.79000575954632, 43.38133341814745], [35.99634530586012, 43.79839117429111], [36.210193300567106, 44.21251332514177], [36.4315497436673, 44.62369987069943], [36.660414635160684, 45.031950810964084], [36.89678797504726, 45.43726614593572], [37.14066976332703, 45.839645875614366], [37.39206, 46.23909]],
+                {"bubblingMouseEvents": true, "color": "#ffab40", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ffab40", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.25}
+            ).addTo(feature_group_e8389aa01cc5ad7a9198fdcfe4bc4b19);
+        
+    
+            poly_line_798c7ee510b162b6cd6741f7fbf40043.bindTooltip(
+                `<div>
+                     <b>Damaskus → Marāgha</b><br>Component 1 · 1 document(s)<br><br>• al-Nāṣir Yūsuf → Hülegü Khan (1×)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            poly_line_798c7ee510b162b6cd6741f7fbf40043.setText(
+                "\u25ba",
+                {"attributes": {"fill": "#ffab40", "font-size": "14"}, "below": false, "center": true, "offset": 5, "orientation": 0, "repeat": false}
+            );
+        
+    
+            var poly_line_4092601bc7ddd153ecc9bbfe1944c6ff = L.polyline(
+                [[39.746389, 39.491389], [39.617589677504725, 39.772858311153115], [39.493926040453694, 40.055585131569], [39.37539808884688, 40.339569461247635], [39.2620058226843, 40.62481130018903], [39.15374924196598, 40.9113106483932], [39.050628346691866, 41.1990675058601], [38.95264313686201, 41.48808187258979], [38.85979361247637, 41.778353748582234], [38.77207977353497, 42.06988313383742], [38.68950162003781, 42.36267002835539], [38.61205915198488, 42.6567144321361], [38.53975236937618, 42.95201634517958], [38.47258127221173, 43.248575767485825], [38.410545860491496, 43.54639269905482], [38.3536461342155, 43.84546713988658], [38.30188209338374, 44.1457990899811], [38.25525373799622, 44.44738854933837], [38.21376106805293, 44.75023551795841], [38.177404083553874, 45.054339995841204], [38.14618278449906, 45.35970198298676], [38.12009717088847, 45.66632147939508], [38.099147242722125, 45.97419848506616], [38.083333, 46.283333]],
+                {"bubblingMouseEvents": true, "color": "#ffab40", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ffab40", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.25}
+            ).addTo(feature_group_e8389aa01cc5ad7a9198fdcfe4bc4b19);
+        
+    
+            poly_line_4092601bc7ddd153ecc9bbfe1944c6ff.bindTooltip(
+                `<div>
+                     <b>Keltzene → Tabriz</b><br>Component 1 · 1 document(s)<br><br>• Ghiyāth al-Dīn Masʽūd II → Mujīr al-Dīn Muḥammad  (1×)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            poly_line_4092601bc7ddd153ecc9bbfe1944c6ff.setText(
+                "\u25ba",
+                {"attributes": {"fill": "#ffab40", "font-size": "14"}, "below": false, "center": true, "offset": 5, "orientation": 0, "repeat": false}
+            );
+        
+    
+            var poly_line_9de355200c49b9bb1969ce2e8ca35fa1 = L.polyline(
+                [[32.46367, 44.41963], [32.692501674480155, 44.5474025637051], [32.922742576181484, 44.670925854820425], [33.154392705103966, 44.790199873345934], [33.38745206124763, 44.90522461928166], [33.62192064461248, 45.0160000926276], [33.85779845519848, 45.12252629338373], [34.09508549300567, 45.22480322155009], [34.33378175803403, 45.322830877126655], [34.573887250283555, 45.41660926011342], [34.815401969754255, 45.5061383705104], [35.05832591644613, 45.59141820831758], [35.30265909035917, 45.672448773534974], [35.54840149149338, 45.74923006616257], [35.795553119848776, 45.82176208620038], [36.04411397542533, 45.89004483364839], [36.29408405822306, 45.95407830850662], [36.54546336824197, 46.01386251077505], [36.79825190548205, 46.069397440453685], [37.052449669943286, 46.120683097542525], [37.30805666162571, 46.16771948204159], [37.5650728805293, 46.210506593950846], [37.823498326654075, 46.24904443327032], [38.083333, 46.283333]],
+                {"bubblingMouseEvents": true, "color": "#ffab40", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ffab40", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.25}
+            ).addTo(feature_group_e8389aa01cc5ad7a9198fdcfe4bc4b19);
+        
+    
+            poly_line_9de355200c49b9bb1969ce2e8ca35fa1.bindTooltip(
+                `<div>
+                     <b>Hilla → Tabriz</b><br>Component 1 · 1 document(s)<br><br>• Ghazan Khan → Mujīr al-Dīn Muḥammad  (1×)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            poly_line_9de355200c49b9bb1969ce2e8ca35fa1.setText(
+                "\u25ba",
+                {"attributes": {"fill": "#ffab40", "font-size": "14"}, "below": false, "center": true, "offset": 5, "orientation": 0, "repeat": false}
+            );
+        
+    
+            var poly_line_24c62de75435732340ee17ae179f2e29 = L.polyline(
+                [[38.35232, 35.08873], [38.36204414744802, 35.04266522117202], [38.37096424196598, 34.99658514555765], [38.37908028355387, 34.950489773156896], [38.38639227221171, 34.90437910396975], [38.39290020793952, 34.85825313799623], [38.39860409073724, 34.81211187523629], [38.40350392060492, 34.76595531568998], [38.40759969754253, 34.71978345935728], [38.41089142155009, 34.67359630623819], [38.4133790926276, 34.62739385633271], [38.41506271077505, 34.581176109640836], [38.415942275992435, 34.534943066162576], [38.416017788279774, 34.48869472589792], [38.41528924763705, 34.44243108884688], [38.41375665406427, 34.39615215500945], [38.41142000756143, 34.34985792438563], [38.40827930812854, 34.30354839697543], [38.40433455576559, 34.25722357277883], [38.39958575047258, 34.21088345179584], [38.39403289224953, 34.16452803402647], [38.38767598109641, 34.1181573194707], [38.38051501701323, 34.07177130812855], [38.37255, 34.02537]],
+                {"bubblingMouseEvents": true, "color": "#ffab40", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ffab40", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.25}
+            ).addTo(feature_group_e8389aa01cc5ad7a9198fdcfe4bc4b19);
+        
+    
+            poly_line_24c62de75435732340ee17ae179f2e29.bindTooltip(
+                `<div>
+                     <b>Develikarahisar → Aksaray</b><br>Component 1 · 1 document(s)<br><br>• Rukn al-Dīn Qilij Arslān IV → ʽIzz al-Dīn Kaykā’us II (1×)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            poly_line_24c62de75435732340ee17ae179f2e29.setText(
+                "\u25ba",
+                {"attributes": {"fill": "#ffab40", "font-size": "14"}, "below": false, "center": true, "offset": 5, "orientation": 0, "repeat": false}
+            );
+        
+    
+            var poly_line_ea42eac394f69101b7c9051818667f40 = L.polyline(
+                [[34.79922, 48.51456], [35.0750971758034, 47.91431667674859], [35.340018442344046, 47.31137140264651], [35.593983799621924, 46.70572417769376], [35.83699324763704, 46.097375001890356], [36.069046786389414, 45.4863238752363], [36.29014441587901, 44.87257079773157], [36.500286136105856, 44.25611576937618], [36.69947194706994, 43.636958790170134], [36.88770184877126, 43.01509986011342], [37.06497584120983, 42.390538979206056], [37.23129392438563, 41.76327614744802], [37.38665609829867, 41.13331136483932], [37.53106236294896, 40.50064463137996], [37.66451271833648, 39.86527594706995], [37.787007164461244, 39.22720531190926], [37.89854570132324, 38.58643272589792], [37.999128328922495, 37.94295818903592], [38.08875504725897, 37.296781701323255], [38.1674258563327, 36.647903262759925], [38.235140756143664, 35.99632287334594], [38.29189974669187, 35.34204053308129], [38.33770282797732, 34.685056241965974], [38.37255, 34.02537]],
+                {"bubblingMouseEvents": true, "color": "#ffab40", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ffab40", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.25}
+            ).addTo(feature_group_e8389aa01cc5ad7a9198fdcfe4bc4b19);
+        
+    
+            poly_line_ea42eac394f69101b7c9051818667f40.bindTooltip(
+                `<div>
+                     <b>Hamadan → Aksaray</b><br>Component 1 · 1 document(s)<br><br>• Hülegü Khan → Rukn al-Dīn Qilij Arslān IV (1×)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            poly_line_ea42eac394f69101b7c9051818667f40.setText(
+                "\u25ba",
+                {"attributes": {"fill": "#ffab40", "font-size": "14"}, "below": false, "center": true, "offset": 5, "orientation": 0, "repeat": false}
+            );
+        
+    
+            var poly_line_5503acda930698a7950b26565c0dd253 = L.polyline(
+                [[33.299801069, 44.384253501], [33.376093246726654, 44.03490881777392], [33.4462794989327, 43.68540540416522], [33.510359825618146, 43.33574326017392], [33.56833422678298, 42.985922385799995], [33.62020270242722, 42.63594278104348], [33.66596525255084, 42.28580444590434], [33.705621877153874, 41.93550738038262], [33.73917257623629, 41.585051584478265], [33.7666173497981, 41.234437058191304], [33.78795619783932, 40.88366380152175], [33.80318912035992, 40.53273181446957], [33.81231611735992, 40.181641097034785], [33.815337188839315, 39.83039164921739], [33.8122523347981, 39.47898347101739], [33.80306155523629, 39.12741656243478], [33.78776485015386, 38.77569092346957], [33.76636221955084, 38.42380655412174], [33.73885366342722, 38.0717634543913], [33.70523918178298, 37.719561624278256], [33.66551877461815, 37.36720106378261], [33.6196924419327, 37.014681772904346], [33.56776018372665, 36.66200375164348], [33.509722, 36.309167]],
+                {"bubblingMouseEvents": true, "color": "#ffab40", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ffab40", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.25}
+            ).addTo(feature_group_e8389aa01cc5ad7a9198fdcfe4bc4b19);
+        
+    
+            poly_line_5503acda930698a7950b26565c0dd253.bindTooltip(
+                `<div>
+                     <b>Baghdad → Damaskus</b><br>Component 1 · 1 document(s)<br><br>• Hülegü Khan → al-Nāṣir Yūsuf (1×)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            poly_line_5503acda930698a7950b26565c0dd253.setText(
+                "\u25ba",
+                {"attributes": {"fill": "#ffab40", "font-size": "14"}, "below": false, "center": true, "offset": 5, "orientation": 0, "repeat": false}
+            );
+        
+    
+            var poly_line_2fb9595ff8491c79f2dfad3d750aaa83 = L.polyline(
+                [[47.211111, 102.85], [47.39928012854443, 99.78410934139887], [47.53540794896031, 96.72490190472591], [47.61949446124763, 93.67237768998109], [47.65153966540643, 90.62653669716447], [47.631543561436686, 87.58737892627599], [47.559506149338375, 84.55490437731568], [47.43542742911153, 81.52911305028354], [47.25930740075614, 78.51000494517957], [47.031146064272214, 75.49758006200378], [46.75094341965974, 72.49183840075615], [46.41869946691872, 69.49277996143667], [46.03441420604915, 66.50040474404537], [45.598087637051044, 63.51471274858223], [45.10971975992439, 60.535703975047255], [44.56931057466919, 57.563378423440454], [43.976860081285444, 54.59773609376181], [43.332368279773156, 51.638776986011344], [42.635835170132324, 48.68650110018904], [41.88726075236295, 45.740908436294895], [41.08664502646503, 42.801998994328926], [40.233987992438564, 39.86977277429112], [39.329289650283556, 36.94422977618147], [38.37255, 34.02537]],
+                {"bubblingMouseEvents": true, "color": "#ffab40", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ffab40", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.25}
+            ).addTo(feature_group_e8389aa01cc5ad7a9198fdcfe4bc4b19);
+        
+    
+            poly_line_2fb9595ff8491c79f2dfad3d750aaa83.bindTooltip(
+                `<div>
+                     <b>Karakorum → Aksaray</b><br>Component 1 · 1 document(s)<br><br>• Möngke Khan → Rukn al-Dīn Qilij Arslān IV (1×)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            poly_line_2fb9595ff8491c79f2dfad3d750aaa83.setText(
+                "\u25ba",
+                {"attributes": {"fill": "#ffab40", "font-size": "14"}, "below": false, "center": true, "offset": 5, "orientation": 0, "repeat": false}
+            );
+        
+    
+            var poly_line_2db2903a04e72ddee6d786a382e8cb29 = L.polyline(
+                [[37.39206, 46.23909], [37.539545096408325, 45.78217292249528], [37.67889099432893, 45.32424795085067], [37.81009769376182, 44.86531508506616], [37.93316519470699, 44.40537432514178], [38.048093497164466, 43.94442567107751], [38.15488260113421, 43.48246912287334], [38.25353250661625, 43.0195046805293], [38.34404321361059, 42.55553234404537], [38.42641472211721, 42.09055211342155], [38.500647032136115, 41.62456398865785], [38.5667401436673, 41.157567969754254], [38.62469405671078, 40.68956405671078], [38.674508771266545, 40.220552249527415], [38.71618428733459, 39.75053254820416], [38.749720604914934, 39.27950495274102], [38.77511772400756, 38.80746946313799], [38.79237564461248, 38.33442607939509], [38.80149436672968, 37.860374801512286], [38.80247389035917, 37.3853156294896], [38.79531421550095, 36.90924856332703], [38.78001534215501, 36.43217360302457], [38.756577270321365, 35.95409074858223], [38.725, 35.475]],
+                {"bubblingMouseEvents": true, "color": "#ffab40", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ffab40", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.25}
+            ).addTo(feature_group_e8389aa01cc5ad7a9198fdcfe4bc4b19);
+        
+    
+            poly_line_2db2903a04e72ddee6d786a382e8cb29.bindTooltip(
+                `<div>
+                     <b>Marāgha → Kaisareia</b><br>Component 1 · 1 document(s)<br><br>• Muʽīn al-Dīn Sulaymān Parwāna → Baybars (1×)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            poly_line_2db2903a04e72ddee6d786a382e8cb29.setText(
+                "\u25ba",
+                {"attributes": {"fill": "#ffab40", "font-size": "14"}, "below": false, "center": true, "offset": 5, "orientation": 0, "repeat": false}
+            );
+        
+    
+            var poly_line_282e8fed96a1cc6fc4bf674db5d6b423 = L.polyline(
+                [[36.111139683, 42.449822203], [36.314541706032514, 42.243864576772786], [36.51383548316485, 42.03515544936069], [36.70902101439697, 41.823694820763706], [36.90009829972892, 41.60948269098185], [37.08706733916068, 41.392519060015125], [37.26992813269224, 41.172803927863505], [37.448680680323626, 40.950337294527024], [37.62332498205482, 40.72511916000566], [37.79386103788582, 40.49714952429943], [37.960288847816635, 40.26642838740832], [38.12260841184725, 40.03295574933232], [38.280819729977694, 39.796731610071454], [38.434922802207936, 39.55775596962571], [38.584917628537994, 39.31602882799508], [38.73080420896787, 39.071550185179575], [38.87258254349754, 38.8243200411792], [39.010252632127035, 38.57433839599395], [39.14381447485633, 38.321605249623815], [39.273268071685436, 38.06612060206881], [39.39861342261437, 37.807884453328924], [39.5198505276431, 37.54689680340415], [39.63697938677164, 37.28315765229452], [39.75, 37.016667]],
+                {"bubblingMouseEvents": true, "color": "#ffab40", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ffab40", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.25}
+            ).addTo(feature_group_e8389aa01cc5ad7a9198fdcfe4bc4b19);
+        
+    
+            poly_line_282e8fed96a1cc6fc4bf674db5d6b423.bindTooltip(
+                `<div>
+                     <b>Diyār Rabīʽa → Sivas</b><br>Component 1 · 1 document(s)<br><br>• Ghazan Khan → ʽAlāʼ al-Dīn Kayqubād III (1×)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            poly_line_282e8fed96a1cc6fc4bf674db5d6b423.setText(
+                "\u25ba",
+                {"attributes": {"fill": "#ffab40", "font-size": "14"}, "below": false, "center": true, "offset": 5, "orientation": 0, "repeat": false}
+            );
+        
+    
+            var poly_line_1420dc15d1dce4a334df08a64ea0f784 = L.polyline(
+                [[38.37255, 34.02537], [38.2283314026465, 34.548246000000006], [38.09334813232515, 35.07186339130435], [37.96760018903591, 35.59622217391305], [37.85108757277882, 36.12132234782609], [37.74381028355388, 36.647163913043485], [37.64576832136105, 37.173746869565214], [37.556961686200374, 37.70107121739131], [37.47739037807183, 38.22913695652174], [37.407054396975425, 38.75794408695653], [37.34595374291116, 39.28749260869566], [37.29408841587902, 39.81778252173913], [37.251458415879014, 40.34881382608695], [37.218063742911156, 40.88058652173913], [37.19390439697543, 41.41310060869566], [37.178980378071834, 41.94635608695653], [37.17329168620037, 42.48035295652174], [37.17683832136106, 43.0150912173913], [37.18962028355387, 43.55057086956521], [37.21163757277883, 44.08679191304348], [37.24289018903592, 44.623754347826086], [37.28337813232514, 45.16145817391304], [37.333101402646506, 45.699903391304346], [37.39206, 46.23909]],
+                {"bubblingMouseEvents": true, "color": "#ffab40", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ffab40", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.25}
+            ).addTo(feature_group_e8389aa01cc5ad7a9198fdcfe4bc4b19);
+        
+    
+            poly_line_1420dc15d1dce4a334df08a64ea0f784.bindTooltip(
+                `<div>
+                     <b>Aksaray → Marāgha</b><br>Component 1 · 1 document(s)<br><br>• Rukn al-Dīn Qilij Arslān IV → Muʽīn al-Dīn Sulaymān Parwāna (1×)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            poly_line_1420dc15d1dce4a334df08a64ea0f784.setText(
+                "\u25ba",
+                {"attributes": {"fill": "#ffab40", "font-size": "14"}, "below": false, "center": true, "offset": 5, "orientation": 0, "repeat": false}
+            );
+        
+    
+            var poly_line_2e5d37ff79bb1433af0d99e082882dbd = L.polyline(
+                [[38.083333, 46.283333], [38.053645646880916, 46.275659672589796], [38.02392483969755, 46.26850904688091], [37.9941705784499, 46.26188112287335], [37.96438286313799, 46.2557759005671], [37.93456169376182, 46.2501933799622], [37.90470707032135, 46.2451335610586], [37.87481899281663, 46.24059644385633], [37.84489746124763, 46.23658202835539], [37.814942475614366, 46.23309031455577], [37.784954035916826, 46.230121302457476], [37.75493214215501, 46.227674992060486], [37.72487679432892, 46.22575138336484], [37.69478799243856, 46.22435047637051], [37.664665736483926, 46.22347227107751], [37.63451002646503, 46.22311676748582], [37.604320862381854, 46.223283965595456], [37.574098244234406, 46.22397386540642], [37.54384217202268, 46.225186466918714], [37.513552645746685, 46.22692177013232], [37.48322966540643, 46.22917977504726], [37.45287323100189, 46.23196048166351], [37.422483342533084, 46.2352638899811], [37.39206, 46.23909]],
+                {"bubblingMouseEvents": true, "color": "#ffab40", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ffab40", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.9748737341529163}
+            ).addTo(feature_group_e8389aa01cc5ad7a9198fdcfe4bc4b19);
+        
+    
+            poly_line_2e5d37ff79bb1433af0d99e082882dbd.bindTooltip(
+                `<div>
+                     <b>Tabriz → Marāgha</b><br>Component 1 · 2 document(s)<br><br>• Abaqa Khan → Muʽīn al-Dīn Sulaymān Parwāna (2×)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            poly_line_2e5d37ff79bb1433af0d99e082882dbd.setText(
+                "\u25ba",
+                {"attributes": {"fill": "#ffab40", "font-size": "15"}, "below": false, "center": true, "offset": 5, "orientation": 0, "repeat": false}
+            );
+        
+    
+            var poly_line_f3b7a1737314d5f997c240986b379e53 = L.polyline(
+                [[38.083333, 46.283333], [38.232873021550105, 45.89429711493384], [38.375406112287344, 45.504000990170134], [38.510932272211726, 45.11244462570889], [38.63945150132325, 44.71962802155009], [38.76096379962193, 44.32555117769377], [38.875469167107745, 43.930214094139885], [38.98296760378072, 43.533616770888464], [39.083459109640835, 43.13575920793951], [39.1769436846881, 42.736641405293], [39.263421328922504, 42.33626336294896], [39.34289204234405, 41.93462508090737], [39.41535582495274, 41.53172655916824], [39.480812676748585, 41.12756779773157], [39.53926259773157, 40.72214879659735], [39.5907055879017, 40.31546955576559], [39.635141647258976, 39.907530075236295], [39.6725707758034, 39.49833035500945], [39.70299297353497, 39.08787039508506], [39.72640824045368, 38.67615019546314], [39.74281657655955, 38.26316975614367], [39.75221798185255, 37.84892907712665], [39.7546124563327, 37.4334281584121], [39.75, 37.016667]],
+                {"bubblingMouseEvents": true, "color": "#ffab40", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ffab40", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.9748737341529163}
+            ).addTo(feature_group_e8389aa01cc5ad7a9198fdcfe4bc4b19);
+        
+    
+            poly_line_f3b7a1737314d5f997c240986b379e53.bindTooltip(
+                `<div>
+                     <b>Tabriz → Sivas</b><br>Component 1 · 2 document(s)<br><br>• Ghazan Khan → ʽAlāʼ al-Dīn Kayqubād III (2×)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            poly_line_f3b7a1737314d5f997c240986b379e53.setText(
+                "\u25ba",
+                {"attributes": {"fill": "#ffab40", "font-size": "15"}, "below": false, "center": true, "offset": 5, "orientation": 0, "repeat": false}
+            );
+        
+    
+            var poly_line_77fd8a222b2039af2f573fa127485f19 = L.polyline(
+                [[38.083333, 46.283333], [38.212132322495286, 46.00186368884688], [38.335795959546324, 45.71913686843101], [38.454323911153125, 45.43515253875236], [38.56771617731569, 45.14991069981096], [38.67597275803403, 44.863411351606814], [38.779093653308124, 44.575654494139876], [38.877078863137996, 44.28664012741021], [38.96992838752363, 43.99636825141777], [39.057642226465035, 43.70483886616257], [39.140220379962194, 43.412051971644615], [39.217662848015124, 43.11800756786389], [39.28996963062382, 42.82270565482041], [39.35714072778828, 42.52614623251418], [39.41917613950851, 42.22832930094518], [39.4760758657845, 41.92925486011342], [39.52783990661625, 41.6289229100189], [39.574468262003776, 41.32733345066163], [39.61596093194707, 41.02448648204158], [39.65231791644612, 40.720382004158786], [39.68353921550095, 40.415020017013234], [39.70962482911153, 40.10840052060491], [39.73057475727788, 39.800523514933836], [39.746389, 39.491389]],
+                {"bubblingMouseEvents": true, "color": "#ffab40", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ffab40", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4.531088913245535}
+            ).addTo(feature_group_e8389aa01cc5ad7a9198fdcfe4bc4b19);
+        
+    
+            poly_line_77fd8a222b2039af2f573fa127485f19.bindTooltip(
+                `<div>
+                     <b>Tabriz → Keltzene</b><br>Component 1 · 3 document(s)<br><br>• Aḥmad Tegüder → Ghiyāth al-Dīn Masʽūd II (1×)<br>• Arghun → Ghiyāth al-Dīn Masʽūd II (1×)<br>• Ghazan Khan → Ghiyāth al-Dīn Masʽūd II (1×)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            poly_line_77fd8a222b2039af2f573fa127485f19.setText(
+                "\u25ba",
+                {"attributes": {"fill": "#ffab40", "font-size": "16"}, "below": false, "center": true, "offset": 6, "orientation": 0, "repeat": false}
+            );
+        
+    
+            var poly_line_67f688158c297d11e17e8799990a26a5 = L.polyline(
+                [[37.39206, 46.23909], [37.5362785973535, 45.716214], [37.671261867674865, 45.19259660869565], [37.797009810964084, 44.66823782608695], [37.91352242722117, 44.143137652173905], [38.020799716446135, 43.61729608695652], [38.11884167863894, 43.09071313043477], [38.20764831379962, 42.56338878260868], [38.28721962192817, 42.035323043478265], [38.35755560302458, 41.50651591304348], [38.418656257088855, 40.97696739130435], [38.47052158412099, 40.44667747826087], [38.51315158412098, 39.915646173913046], [38.54654625708885, 39.38387347826087], [38.57070560302458, 38.85135939130434], [38.58562962192816, 38.31810391304348], [38.59131831379962, 37.78410704347826], [38.587771678638944, 37.2493687826087], [38.574989716446126, 36.71388913043478], [38.55297242722117, 36.177668086956515], [38.521719810964086, 35.640705652173914], [38.48123186767486, 35.10300182608696], [38.4315085973535, 34.56455660869565], [38.37255, 34.02537]],
+                {"bubblingMouseEvents": true, "color": "#ffab40", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ffab40", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 5.0}
+            ).addTo(feature_group_e8389aa01cc5ad7a9198fdcfe4bc4b19);
+        
+    
+            poly_line_67f688158c297d11e17e8799990a26a5.bindTooltip(
+                `<div>
+                     <b>Marāgha → Aksaray</b><br>Component 1 · 4 document(s)<br><br>• Hülegü Khan → ʽIzz al-Dīn Kaykā’us II (2×)<br>• Hülegü Khan → Rukn al-Dīn Qilij Arslān IV (1×)<br>• Hülegü Khan → Shams al-Dīn Maḥmūd Tughrāyī Bābā Bihnām (1×)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            poly_line_67f688158c297d11e17e8799990a26a5.setText(
+                "\u25ba",
+                {"attributes": {"fill": "#ffab40", "font-size": "17"}, "below": false, "center": true, "offset": 6, "orientation": 0, "repeat": false}
+            );
+        
+    
+            feature_group_e8389aa01cc5ad7a9198fdcfe4bc4b19.addTo(map_9f62e05a24522d01fa64e80faf1beec9);
+        
+    
+            var feature_group_b75f40ace96d3cbc80b4ea225e45f1dc = L.featureGroup(
+                {}
+            );
+        
+    
+            var poly_line_3a9a298a7f9d92bb4166492ff4f5a2b4 = L.polyline(
+                [[38.725, 35.475], [38.53274931190927, 35.92637365973535], [38.3527074215501, 36.37925916068053], [38.1848743289225, 36.833656502835545], [38.02925003402647, 37.28956568620037], [37.88583453686201, 37.74698671077505], [37.754627837429105, 38.205919576559545], [37.63562993572779, 38.666364283553875], [37.52884083175804, 39.12832083175803], [37.43426052551985, 39.59178922117202], [37.351889017013235, 40.056769451795844], [37.28172630623819, 40.523261523629486], [37.22377239319471, 40.99126543667296], [37.178027277882805, 41.46078119092628], [37.14449096030246, 41.93180878638941], [37.12316344045369, 42.40434822306238], [37.11404471833649, 42.87839950094518], [37.117134793950854, 43.353962620037805], [37.13243366729679, 43.83103758034026], [37.159941338374296, 44.30962438185255], [37.19965780718337, 44.78972302457467], [37.25158307372401, 45.27133350850661], [37.315717137996224, 45.75445583364839], [37.39206, 46.23909]],
+                {"bubblingMouseEvents": true, "color": "#c27ba0", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#c27ba0", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.25}
+            ).addTo(feature_group_b75f40ace96d3cbc80b4ea225e45f1dc);
+        
+    
+            poly_line_3a9a298a7f9d92bb4166492ff4f5a2b4.bindTooltip(
+                `<div>
+                     <b>Kaisareia → Marāgha</b><br>Component 2 · 1 document(s)<br><br>• ʽAlāʼ al-Dīn Kayqubād I → Jalāl al-Dīn Khwārazmshāh (1×)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            poly_line_3a9a298a7f9d92bb4166492ff4f5a2b4.setText(
+                "\u25ba",
+                {"attributes": {"fill": "#c27ba0", "font-size": "14"}, "below": false, "center": true, "offset": 5, "orientation": 0, "repeat": false}
+            );
+        
+    
+            var poly_line_d6fc233536a49519b45e89c3e9ba732b = L.polyline(
+                [[36.888611, 30.703333], [36.84945984083176, 30.932679730434785], [36.8161072415879, 31.161383860869567], [36.78855320226843, 31.389445391304346], [36.76679772287334, 31.61686432173913], [36.75084080340265, 31.843640652173917], [36.74068244385632, 32.06977438260869], [36.736322644234406, 32.29526551304348], [36.73776140453686, 32.52011404347826], [36.744998724763704, 32.74431997391304], [36.75803460491494, 32.96788330434783], [36.77686904499055, 33.19080403478261], [36.80150204499055, 33.413082165217396], [36.83193360491494, 33.63471769565217], [36.868163724763704, 33.85571062608696], [36.910192404536865, 34.076060956521744], [36.958019644234405, 34.29576868695652], [37.01164544385634, 34.514833817391306], [37.07106980340265, 34.733256347826085], [37.13629272287335, 34.95103627826087], [37.207314202268435, 35.16817360869565], [37.2841342415879, 35.384668339130435], [37.366752840831765, 35.60052046956522], [37.45517, 35.81573]],
+                {"bubblingMouseEvents": true, "color": "#c27ba0", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#c27ba0", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.25}
+            ).addTo(feature_group_b75f40ace96d3cbc80b4ea225e45f1dc);
+        
+    
+            poly_line_d6fc233536a49519b45e89c3e9ba732b.bindTooltip(
+                `<div>
+                     <b>Attaleia → Sis</b><br>Component 2 · 1 document(s)<br><br>• ʽAlāʼ al-Dīn Kayqubād I → Żiyā’ al-Dīn Qarā Arslān (1×)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            poly_line_d6fc233536a49519b45e89c3e9ba732b.setText(
+                "\u25ba",
+                {"attributes": {"fill": "#c27ba0", "font-size": "14"}, "below": false, "center": true, "offset": 5, "orientation": 0, "repeat": false}
+            );
+        
+    
+            var poly_line_376c7bc4638c2f4f6fbef8dca6683612 = L.polyline(
+                [[33.299801069, 44.384253501], [33.64683443104083, 44.064581445086205], [33.98376277965898, 43.73875604444916], [34.31058611485444, 43.40677729908886], [34.62730443662721, 43.0686452090053], [34.93391774497732, 42.7243597741985], [35.23042603990472, 42.37392099466843], [35.516829321409446, 42.017328870415135], [35.7931275894915, 41.65458340143857], [36.059320844150854, 41.28568458773876], [36.31540908538753, 40.910632429315704], [36.56139231320151, 40.529426926169386], [36.79727052759282, 40.142068078299815], [37.02304372856144, 39.748555885707006], [37.23871191610738, 39.34889034839093], [37.444275090230626, 38.94307146635161], [37.63973325093119, 38.53109923958904], [37.82508639820907, 38.11297366810322], [38.00033453206427, 37.68869475189415], [38.16547765249679, 37.25826249096181], [38.32051575950662, 36.821676885306246], [38.46544885309376, 36.378937934927414], [38.60027693325823, 35.93004563982533], [38.725, 35.475]],
+                {"bubblingMouseEvents": true, "color": "#c27ba0", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#c27ba0", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.25}
+            ).addTo(feature_group_b75f40ace96d3cbc80b4ea225e45f1dc);
+        
+    
+            poly_line_376c7bc4638c2f4f6fbef8dca6683612.bindTooltip(
+                `<div>
+                     <b>Baghdad → Kaisareia</b><br>Component 2 · 1 document(s)<br><br>• al-Nāṣir → ʽAlāʼ al-Dīn Kayqubād I (1×)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            poly_line_376c7bc4638c2f4f6fbef8dca6683612.setText(
+                "\u25ba",
+                {"attributes": {"fill": "#c27ba0", "font-size": "14"}, "below": false, "center": true, "offset": 5, "orientation": 0, "repeat": false}
+            );
+        
+    
+            var poly_line_4740e63bbc362a4c3936df7837608fe8 = L.polyline(
+                [[33.299801069, 44.384253501], [33.64736364729792, 43.92384557098412], [33.98142549686125, 43.458244913258234], [34.30198661768998, 42.98745152782231], [34.60904700978412, 42.511465414676366], [34.902606673143666, 42.030286573820426], [35.18266560776861, 41.54391500525444], [35.449223813658975, 41.052350708978445], [35.702281290814746, 40.55559368499244], [35.94183803923592, 40.053643933296414], [36.1678940589225, 39.546501453890365], [36.380449349874475, 39.03416624677429], [36.57950391209187, 38.5166383119482], [36.76505774557467, 37.9939176494121], [36.937110850322874, 37.46600425916597], [37.095663226336484, 36.93289814120983], [37.2407148736155, 36.394599295543664], [37.37226579215992, 35.851107722167484], [37.49031598196976, 35.302423421081286], [37.594865443044995, 34.748546392285064], [37.68591417538563, 34.18947663577883], [37.76346217899169, 33.62521415156257], [37.82750945386314, 33.0557589396363], [37.878056, 32.481111]],
+                {"bubblingMouseEvents": true, "color": "#c27ba0", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#c27ba0", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.25}
+            ).addTo(feature_group_b75f40ace96d3cbc80b4ea225e45f1dc);
+        
+    
+            poly_line_4740e63bbc362a4c3936df7837608fe8.bindTooltip(
+                `<div>
+                     <b>Baghdad → Konya</b><br>Component 2 · 1 document(s)<br><br>• al-Nāṣir → ʽIzz al-Dīn Kaykā’us I (1×)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            poly_line_4740e63bbc362a4c3936df7837608fe8.setText(
+                "\u25ba",
+                {"attributes": {"fill": "#c27ba0", "font-size": "14"}, "below": false, "center": true, "offset": 5, "orientation": 0, "repeat": false}
+            );
+        
+    
+            var poly_line_783a0f23b3c7c5e619f17b32087277bc = L.polyline(
+                [[37.878056, 32.481111], [37.749508911769, 32.48551790172968], [37.62195711086731, 32.49299260157089], [37.495400597294896, 32.50353509952363], [37.369839371051796, 32.517145395587896], [37.245273432138, 32.533823489763705], [37.12170278055349, 32.55356938205103], [36.99912741629829, 32.5763830724499], [36.877547339372406, 32.60226456096031], [36.75696254977581, 32.63121384758223], [36.63737304750851, 32.66323093231569], [36.51877883257051, 32.69831581516068], [36.40117990496182, 32.736468496117205], [36.28457626468242, 32.77768897518526], [36.168967911732324, 32.82197725236484], [36.05435484611153, 32.86933332765596], [35.94073706782004, 32.9197572010586], [35.82811457685784, 32.97324887257278], [35.71648737322495, 33.02980834219849], [35.60585545692136, 33.08943560993573], [35.496218827947075, 33.152130675784505], [35.38757748630208, 33.2178935397448], [35.27993143198639, 33.28672420181664], [35.173280665, 33.358622662]],
+                {"bubblingMouseEvents": true, "color": "#c27ba0", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#c27ba0", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.25}
+            ).addTo(feature_group_b75f40ace96d3cbc80b4ea225e45f1dc);
+        
+    
+            poly_line_783a0f23b3c7c5e619f17b32087277bc.bindTooltip(
+                `<div>
+                     <b>Konya → Lefkosia</b><br>Component 2 · 1 document(s)<br><br>• ʽIzz al-Dīn Kaykā’us I → Hugh I of Cyprus (1×)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            poly_line_783a0f23b3c7c5e619f17b32087277bc.setText(
+                "\u25ba",
+                {"attributes": {"fill": "#c27ba0", "font-size": "14"}, "below": false, "center": true, "offset": 5, "orientation": 0, "repeat": false}
+            );
+        
+    
+            var poly_line_9d507626da319aa1cf33dc25a70e3b4f = L.polyline(
+                [[36.54375, 31.99982], [36.54338124104802, 31.999235717252173], [36.54300095000076, 31.998664363513043], [36.542609126858224, 31.998105938782604], [36.54220577162042, 31.997560443060866], [36.541790884287344, 31.997027876347826], [36.54136446485897, 31.99650823864347], [36.54092651333535, 31.996001529947826], [36.54047702971645, 31.99550775026087], [36.54001601400227, 31.995026899582605], [36.53954346619282, 31.994558977913044], [36.53905938628809, 31.994103985252174], [36.53856377428809, 31.9936619216], [36.53805663019281, 31.99323278695652], [36.53753795400227, 31.99281658132174], [36.537007745716444, 31.992413304695653], [36.53646600533534, 31.99202295707826], [36.535912732858975, 31.991645538469562], [36.53534792828734, 31.991281048869567], [36.53477159162041, 31.990929488278258], [36.534183722858224, 31.990590856695654], [36.53358432200075, 31.990265154121737], [36.53297338904801, 31.989952380556524], [36.532350924, 31.989652536]],
+                {"bubblingMouseEvents": true, "color": "#c27ba0", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#c27ba0", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.25}
+            ).addTo(feature_group_b75f40ace96d3cbc80b4ea225e45f1dc);
+        
+    
+            poly_line_9d507626da319aa1cf33dc25a70e3b4f.bindTooltip(
+                `<div>
+                     <b>Alanya → Kalon Oros</b><br>Component 2 · 1 document(s)<br><br>• ʽAlāʼ al-Dīn Kayqubād I → Kīr Fārd (1×)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            poly_line_9d507626da319aa1cf33dc25a70e3b4f.setText(
+                "\u25ba",
+                {"attributes": {"fill": "#c27ba0", "font-size": "14"}, "below": false, "center": true, "offset": 5, "orientation": 0, "repeat": false}
+            );
+        
+    
+            var poly_line_43893df5947eb11161c2a2a2d20a6e97 = L.polyline(
+                [[38.348611, 38.319444], [38.48502615765595, 38.10120573459358], [38.61523778714556, 37.881188955765595], [38.73924588846881, 37.65939366351606], [38.857050461625704, 37.43581985784498], [38.96865150661626, 37.21046753875237], [39.074049023440445, 36.98333670623818], [39.1732430120983, 36.75442736030246], [39.26623347258979, 36.523739500945176], [39.35302040491493, 36.29127312816635], [39.43360380907372, 36.05702824196597], [39.507983685066165, 35.821004842344045], [39.57616003289225, 35.58320292930057], [39.63813285255198, 35.343622502835544], [39.69390214404537, 35.10226356294896], [39.7434679073724, 34.859126109640826], [39.78683014253308, 34.61421014291115], [39.82398884952741, 34.36751566275993], [39.85494402835538, 34.119042669187145], [39.87969567901701, 33.868791162192814], [39.89824380151229, 33.61676114177694], [39.91058839584121, 33.362952607939505], [39.91672946200378, 33.10736556068053], [39.916667, 32.85]],
+                {"bubblingMouseEvents": true, "color": "#c27ba0", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#c27ba0", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.25}
+            ).addTo(feature_group_b75f40ace96d3cbc80b4ea225e45f1dc);
+        
+    
+            poly_line_43893df5947eb11161c2a2a2d20a6e97.bindTooltip(
+                `<div>
+                     <b>Melitene → Ankara</b><br>Component 2 · 1 document(s)<br><br>• ʽAlāʼ al-Dīn Kayqubād I → Sayf al-Dīn Ayba (1×)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            poly_line_43893df5947eb11161c2a2a2d20a6e97.setText(
+                "\u25ba",
+                {"attributes": {"fill": "#c27ba0", "font-size": "14"}, "below": false, "center": true, "offset": 5, "orientation": 0, "repeat": false}
+            );
+        
+    
+            var poly_line_233c1bfae85e48a6d31ebf1e30584da9 = L.polyline(
+                [[39.746389, 39.491389], [39.73123050623819, 39.570999281285445], [39.71809564234405, 39.65042430775048], [39.70698440831758, 39.729664079395086], [39.697896804158795, 39.80871859621927], [39.69083282986769, 39.88758785822307], [39.68579248544423, 39.96627186540641], [39.68277577088847, 40.04477061776937], [39.681782686200386, 40.12308411531191], [39.68281323137997, 40.20121235803402], [39.68586740642723, 40.27915534593573], [39.69094521134216, 40.35691307901701], [39.698046646124766, 40.43448555727788], [39.70717171077505, 40.511872780718335], [39.71832040529301, 40.58907474933837], [39.73149272967864, 40.666091463137995], [39.74668868393195, 40.7429229221172], [39.76390826805293, 40.819569126275994], [39.78315148204159, 40.89603007561436], [39.80441832589792, 40.97230577013232], [39.82770879962193, 41.04839620982987], [39.85302290321361, 41.12430139470699], [39.880360636672975, 41.2000213247637], [39.909722, 41.275556]],
+                {"bubblingMouseEvents": true, "color": "#c27ba0", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#c27ba0", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.25}
+            ).addTo(feature_group_b75f40ace96d3cbc80b4ea225e45f1dc);
+        
+    
+            poly_line_233c1bfae85e48a6d31ebf1e30584da9.bindTooltip(
+                `<div>
+                     <b>Keltzene → Theodosioupolis</b><br>Component 2 · 1 document(s)<br><br>• ʽAlā’ al-Dīn Dāʼudshāh → al-Ashraf Mūsā (1×)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            poly_line_233c1bfae85e48a6d31ebf1e30584da9.setText(
+                "\u25ba",
+                {"attributes": {"fill": "#c27ba0", "font-size": "14"}, "below": false, "center": true, "offset": 5, "orientation": 0, "repeat": false}
+            );
+        
+    
+            var poly_line_a740eadb436f461808fab6a9ec9563ae = L.polyline(
+                [[39.746389, 39.491389], [39.559840051795845, 39.75539382344046], [39.38094445066164, 40.02206896332704], [39.209702196597355, 40.29141441965974], [39.04611328960302, 40.56343019243856], [38.89017772967865, 40.83811628166352], [38.741895516824194, 41.11547268733459], [38.601266651039694, 41.395499409451794], [38.46829113232514, 41.67819644801512], [38.34296896068054, 41.96356380302457], [38.22530013610587, 42.251601474480154], [38.11528465860114, 42.54230946238185], [38.01292252816636, 42.83568776672968], [37.91821374480152, 43.13173638752363], [37.831158308506616, 43.430455324763706], [37.75175621928167, 43.73184457844991], [37.68000747712666, 44.035904148582226], [37.61591208204159, 44.34263403516068], [37.55947003402646, 44.65203423818525], [37.51068133308128, 44.96410475765595], [37.46954597920605, 45.278845593572775], [37.43606397240076, 45.59625674593572], [37.41023531266541, 45.9163382147448], [37.39206, 46.23909]],
+                {"bubblingMouseEvents": true, "color": "#c27ba0", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#c27ba0", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.25}
+            ).addTo(feature_group_b75f40ace96d3cbc80b4ea225e45f1dc);
+        
+    
+            poly_line_a740eadb436f461808fab6a9ec9563ae.bindTooltip(
+                `<div>
+                     <b>Keltzene → Marāgha</b><br>Component 2 · 1 document(s)<br><br>• ʽAlā’ al-Dīn Dāʼudshāh → Jalāl al-Dīn Khwārazmshāh (1×)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            poly_line_a740eadb436f461808fab6a9ec9563ae.setText(
+                "\u25ba",
+                {"attributes": {"fill": "#c27ba0", "font-size": "14"}, "below": false, "center": true, "offset": 5, "orientation": 0, "repeat": false}
+            );
+        
+    
+            var poly_line_c41b88b9b3b39ead5a339cb3ce3625ac = L.polyline(
+                [[37.878056, 32.481111], [37.83067015770662, 32.65334070334972], [37.78776317848734, 32.825521320137995], [37.749335062342155, 32.997652850364844], [37.715385809271076, 33.16973529403024], [37.6859154192741, 33.34176865113422], [37.66092389235123, 33.51375292167674], [37.64041122850245, 33.68568810565784], [37.62437742772779, 33.857574203077505], [37.61282249002722, 34.029411213935724], [37.60574641540076, 34.20119913823251], [37.603149203848396, 34.37293797596786], [37.60503085537013, 34.54462772714177], [37.61139136996597, 34.71626839175425], [37.62223074763592, 34.88785996980529], [37.63754898837996, 35.059402461294894], [37.65734609219811, 35.23089586622306], [37.68162205909036, 35.40234018458979], [37.710376889056704, 35.57373541639508], [37.74361058209716, 35.74508156163894], [37.78132313821172, 35.91637862032136], [37.82351455740037, 36.08762659244234], [37.87018483966313, 36.25882547800189], [37.921333985, 36.429975277]],
+                {"bubblingMouseEvents": true, "color": "#c27ba0", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#c27ba0", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.25}
+            ).addTo(feature_group_b75f40ace96d3cbc80b4ea225e45f1dc);
+        
+    
+            poly_line_c41b88b9b3b39ead5a339cb3ce3625ac.bindTooltip(
+                `<div>
+                     <b>Konya → Čanči / Ճանճի</b><br>Component 2 · 1 document(s)<br><br>• ʽAlāʼ al-Dīn Kayqubād I → John the Fair Komnenos (1×)<br>• ʽAlāʼ al-Dīn Kayqubād I → Mubāriz al-Dīn Çavlı (1×)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            poly_line_c41b88b9b3b39ead5a339cb3ce3625ac.setText(
+                "\u25ba",
+                {"attributes": {"fill": "#c27ba0", "font-size": "14"}, "below": false, "center": true, "offset": 5, "orientation": 0, "repeat": false}
+            );
+        
+    
+            var poly_line_648c587b755be07b790e2ef7e849196d = L.polyline(
+                [[36.532350924, 31.989652536], [36.39194831811267, 32.61991934426768], [36.267707645076754, 33.249211057175046], [36.159628904892244, 33.87752767472212], [36.067712097559166, 34.50486919690888], [35.991957223077506, 35.13123562373535], [35.93236428144725, 35.756626955201504], [35.888933272668424, 36.38104319130737], [35.861664196741025, 37.00448433205293], [35.85055705366503, 37.626950377438185], [35.85561184344046, 38.24844132746314], [35.876828566067296, 38.86895718212779], [35.91420722154555, 39.488497941432136], [35.967747809875235, 40.10706360537618], [36.037450331056334, 40.72465417395992], [36.12331478508885, 41.34126964718337], [36.22534117197278, 41.9569100250465], [36.343529491708125, 42.57157530754934], [36.477879744294896, 43.18526549469187], [36.628391929733084, 43.7979805864741], [36.79506604802269, 44.40972058289603], [36.97790209916371, 45.02048548395765], [37.17690008315615, 45.630275289658975], [37.39206, 46.23909]],
+                {"bubblingMouseEvents": true, "color": "#c27ba0", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#c27ba0", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.25}
+            ).addTo(feature_group_b75f40ace96d3cbc80b4ea225e45f1dc);
+        
+    
+            poly_line_648c587b755be07b790e2ef7e849196d.bindTooltip(
+                `<div>
+                     <b>Kalon Oros → Marāgha</b><br>Component 2 · 1 document(s)<br><br>• ʽAlāʼ al-Dīn Kayqubād I → Jalāl al-Dīn Khwārazmshāh (1×)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            poly_line_648c587b755be07b790e2ef7e849196d.setText(
+                "\u25ba",
+                {"attributes": {"fill": "#c27ba0", "font-size": "14"}, "below": false, "center": true, "offset": 5, "orientation": 0, "repeat": false}
+            );
+        
+    
+            var poly_line_a8388a871f84612f4fa2ad6540aeb6a6 = L.polyline(
+                [[33.509722, 36.309167], [33.74688059395085, 36.33796661020795], [33.98309306275993, 36.36085097126655], [34.21835940642722, 36.377820083175806], [34.45267962495274, 36.38887394593573], [34.68605371833649, 36.39401255954632], [34.91848168657844, 36.393235924007556], [35.14996352967864, 36.386544039319475], [35.380499247637054, 36.37393690548205], [35.610088840453685, 36.35541452249527], [35.83873230812855, 36.330976890359175], [36.06642965066163, 36.30062400907372], [36.293180868052936, 36.264355878638945], [36.51898596030246, 36.22217249905482], [36.74384492741021, 36.174073870321365], [36.96775776937618, 36.12005999243856], [37.19072448620038, 36.06013086540642], [37.4127450778828, 35.994286489224955], [37.63381954442344, 35.92252686389414], [37.85394788582231, 35.84485198941398], [38.073130102079396, 35.761261865784505], [38.291366193194705, 35.671756493005674], [38.50865615916825, 35.576335871077504], [38.725, 35.475]],
+                {"bubblingMouseEvents": true, "color": "#c27ba0", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#c27ba0", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.25}
+            ).addTo(feature_group_b75f40ace96d3cbc80b4ea225e45f1dc);
+        
+    
+            poly_line_a8388a871f84612f4fa2ad6540aeb6a6.bindTooltip(
+                `<div>
+                     <b>Damaskus → Kaisareia</b><br>Component 2 · 1 document(s)<br><br>• Shams al-Dīn Altun-aba → ʽAlāʼ al-Dīn Kayqubād I (1×)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            poly_line_a8388a871f84612f4fa2ad6540aeb6a6.setText(
+                "\u25ba",
+                {"attributes": {"fill": "#c27ba0", "font-size": "14"}, "below": false, "center": true, "offset": 5, "orientation": 0, "repeat": false}
+            );
+        
+    
+            var poly_line_a8f41cec79f73abf5f2c5bc5b96e9697 = L.polyline(
+                [[36.888611, 30.703333], [36.908920914555765, 30.933708252173915], [36.93464292778828, 31.16200064347826], [36.96577703969754, 31.388210173913045], [37.002323250283546, 31.61233684347826], [37.04428155954632, 31.834380652173916], [37.09165196748581, 32.0543416], [37.14443447410207, 32.272219686956525], [37.20262907939509, 32.488014913043486], [37.266235783364834, 32.701727278260876], [37.335254586011345, 32.9133567826087], [37.4096854873346, 33.12290342608696], [37.489528487334596, 33.330367208695655], [37.57478358601134, 33.53574813043478], [37.66545078336484, 33.739046191304354], [37.76153007939509, 33.940261391304354], [37.863021474102084, 34.13939373043478], [37.969924967485824, 34.336443208695655], [38.08224055954631, 34.53140982608696], [38.199968250283554, 34.724293582608695], [38.323108039697544, 34.915094478260876], [38.45165992778828, 35.10381251304348], [38.58562391455577, 35.29044768695652], [38.725, 35.475]],
+                {"bubblingMouseEvents": true, "color": "#c27ba0", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#c27ba0", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.9748737341529163}
+            ).addTo(feature_group_b75f40ace96d3cbc80b4ea225e45f1dc);
+        
+    
+            poly_line_a8f41cec79f73abf5f2c5bc5b96e9697.bindTooltip(
+                `<div>
+                     <b>Attaleia → Kaisareia</b><br>Component 2 · 2 document(s)<br><br>• ʽAlāʼ al-Dīn Kayqubād I → Kamāl al-Dīn Kāmyār (1×)<br>• ʽAlāʼ al-Dīn Kayqubād I → Tāj al-Dīn (1×)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            poly_line_a8f41cec79f73abf5f2c5bc5b96e9697.setText(
+                "\u25ba",
+                {"attributes": {"fill": "#c27ba0", "font-size": "15"}, "below": false, "center": true, "offset": 5, "orientation": 0, "repeat": false}
+            );
+        
+    
+            var poly_line_aa68d72c5a2a96439584affeae7b1d95 = L.polyline(
+                [[37.39206, 46.23909], [37.58431068809074, 45.78771634026465], [37.76435257844991, 45.33483083931948], [37.932185671077505, 44.88043349716446], [38.087809965973534, 44.42452431379962], [38.231225463138, 43.96710328922496], [38.36243216257088, 43.50817042344045], [38.48143006427221, 43.047725716446124], [38.58821916824197, 42.58576916824197], [38.682799474480156, 42.12230077882798], [38.765170982986774, 41.65732054820416], [38.83533369376182, 41.19082847637051], [38.893287606805295, 40.72282456332704], [38.939032722117204, 40.25330880907373], [38.97256903969754, 39.78228121361059], [38.993896559546315, 39.30974177693762], [39.00301528166352, 38.83569049905482], [38.99992520604915, 38.360127379962194], [38.984626332703215, 37.883052419659734], [38.95711866162571, 37.40446561814745], [38.91740219281664, 36.924366975425336], [38.865476926275996, 36.442756491493384], [38.801342862003786, 35.959634166351606], [38.725, 35.475]],
+                {"bubblingMouseEvents": true, "color": "#c27ba0", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#c27ba0", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.9748737341529163}
+            ).addTo(feature_group_b75f40ace96d3cbc80b4ea225e45f1dc);
+        
+    
+            poly_line_aa68d72c5a2a96439584affeae7b1d95.bindTooltip(
+                `<div>
+                     <b>Marāgha → Kaisareia</b><br>Component 2 · 2 document(s)<br><br>• Jalāl al-Dīn Khwārazmshāh → ʽAlāʼ al-Dīn Kayqubād I (2×)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            poly_line_aa68d72c5a2a96439584affeae7b1d95.setText(
+                "\u25ba",
+                {"attributes": {"fill": "#c27ba0", "font-size": "15"}, "below": false, "center": true, "offset": 5, "orientation": 0, "repeat": false}
+            );
+        
+    
+            var poly_line_153e0d37af79a076f7d44a7eb068c7fd = L.polyline(
+                [[35.173280665, 33.358622662], [35.301827753231, 33.35421576027032], [35.42937955413271, 33.34674106042912], [35.555936067705105, 33.33619856247637], [35.681497293948205, 33.3225882664121], [35.80606323286201, 33.3059101722363], [35.9296338844465, 33.286164279948956], [36.0522092487017, 33.26335058955009], [36.1737893256276, 33.2374691010397], [36.2943741152242, 33.20851981441777], [36.413963617491504, 33.176502729684316], [36.5325578324295, 33.141417846839325], [36.65015676003819, 33.1032651658828], [36.76676040031759, 33.062044686814744], [36.88236875326768, 33.01775640963516], [36.99698181888847, 32.97040033434405], [37.11059959717996, 32.9199764609414], [37.22322208814216, 32.86648478942722], [37.33484929177505, 32.809925319801515], [37.44548120807864, 32.75029805206427], [37.55511783705293, 32.6876029862155], [37.66375917869792, 32.62184012225519], [37.77140523301361, 32.55300946018337], [37.878056, 32.481111]],
+                {"bubblingMouseEvents": true, "color": "#c27ba0", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#c27ba0", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.9748737341529163}
+            ).addTo(feature_group_b75f40ace96d3cbc80b4ea225e45f1dc);
+        
+    
+            poly_line_153e0d37af79a076f7d44a7eb068c7fd.bindTooltip(
+                `<div>
+                     <b>Lefkosia → Konya</b><br>Component 2 · 2 document(s)<br><br>• Hugh I of Cyprus → ʽIzz al-Dīn Kaykā’us I (2×)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            poly_line_153e0d37af79a076f7d44a7eb068c7fd.setText(
+                "\u25ba",
+                {"attributes": {"fill": "#c27ba0", "font-size": "15"}, "below": false, "center": true, "offset": 5, "orientation": 0, "repeat": false}
+            );
+        
+    
+            var poly_line_7839124d091d7cab8add4bef54c20aa2 = L.polyline(
+                [[36.532350924, 31.989652536], [36.5841990062034, 32.16854568453233], [36.64000022352666, 32.34495189649453], [36.69975457596975, 32.51887117188658], [36.7634620635327, 32.69030351070851], [36.83112268621551, 32.85924891296031], [36.90273644401814, 33.02570737864196], [36.97830333694064, 33.189678907753496], [37.057823364982994, 33.3511635002949], [37.14129652814518, 33.510161156266165], [37.22872282642722, 33.666671875667305], [37.32010225982911, 33.8206956584983], [37.415434828350854, 33.97223250475917], [37.51472053199244, 34.12128241444991], [37.61795937075388, 34.26784538757052], [37.725151344635165, 34.41192142412098], [37.836296453636294, 34.55351052410133], [37.95139469775728, 34.692612687511534], [38.07044607699811, 34.829227914351605], [38.19345059135879, 34.96335620462155], [38.32040824083932, 35.09499755832137], [38.4513190254397, 35.224151975451036], [38.58618294515993, 35.35081945601058], [38.725, 35.475]],
+                {"bubblingMouseEvents": true, "color": "#c27ba0", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#c27ba0", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.9748737341529163}
+            ).addTo(feature_group_b75f40ace96d3cbc80b4ea225e45f1dc);
+        
+    
+            poly_line_7839124d091d7cab8add4bef54c20aa2.bindTooltip(
+                `<div>
+                     <b>Kalon Oros → Kaisareia</b><br>Component 2 · 2 document(s)<br><br>• Kīr Fārd → ʽAlāʼ al-Dīn Kayqubād I (1×)<br>• Functionaries of the city of ʽAlāʼīya (1230) → ʽAlāʼ al-Dīn Kayqubād I (1×)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            poly_line_7839124d091d7cab8add4bef54c20aa2.setText(
+                "\u25ba",
+                {"attributes": {"fill": "#c27ba0", "font-size": "15"}, "below": false, "center": true, "offset": 5, "orientation": 0, "repeat": false}
+            );
+        
+    
+            feature_group_b75f40ace96d3cbc80b4ea225e45f1dc.addTo(map_9f62e05a24522d01fa64e80faf1beec9);
+        
+    
+            var feature_group_451952ab82fc97f800f789c87e2a44c0 = L.featureGroup(
+                {}
+            );
+        
+    
+            var poly_line_b9c65581903809bfb89edff7a5aa9f6c = L.polyline(
+                [[38.479277, 28.031702], [38.53592703516069, 28.13758198941399], [38.59513194064273, 28.240514027221174], [38.65689171644613, 28.340498113421546], [38.72120636257089, 28.437534248015123], [38.78807587901702, 28.531622431001892], [38.857500265784495, 28.622762662381845], [38.92947952287334, 28.71095494215501], [39.00401365028356, 28.796199270321356], [39.08110264801512, 28.878495646880907], [39.16074651606806, 28.957844071833648], [39.24294525444235, 29.034244545179583], [39.327698863138, 29.107697066918718], [39.41500734215501, 29.17820163705104], [39.50487069149339, 29.245758255576554], [39.59728891115312, 29.31036692249527], [39.69226200113421, 29.37202763780718], [39.78978996143667, 29.430740401512285], [39.88987279206049, 29.48650521361058], [39.99251049300567, 29.539322074102074], [40.09770306427221, 29.589190982986764], [40.20545050586011, 29.636111940264648], [40.31575281776938, 29.680084945935725], [40.42861, 29.72111]],
+                {"bubblingMouseEvents": true, "color": "#6aa84f", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#6aa84f", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.25}
+            ).addTo(feature_group_451952ab82fc97f800f789c87e2a44c0);
+        
+    
+            poly_line_b9c65581903809bfb89edff7a5aa9f6c.bindTooltip(
+                `<div>
+                     <b>Sardeis → Nicaea</b><br>Component 3 · 1 document(s)<br><br>• Theodore I Laskaris → Nikolaos Mesarites (1×)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            poly_line_b9c65581903809bfb89edff7a5aa9f6c.setText(
+                "\u25ba",
+                {"attributes": {"fill": "#6aa84f", "font-size": "14"}, "below": false, "center": true, "offset": 5, "orientation": 0, "repeat": false}
+            );
+        
+    
+            var poly_line_d00040bb5d581d0be9e1b7cd15264d39 = L.polyline(
+                [[40.42861, 29.72111], [40.37996133308129, 29.58760849035917], [40.32782684536863, 29.45713281361059], [40.272206536862, 29.329682969754252], [40.213100407561434, 29.205258958790168], [40.15050845746692, 29.08386078071834], [40.08443068657845, 28.965488435538745], [40.014867094896026, 28.850141923251417], [39.94181768241966, 28.73782124385633], [39.86528244914934, 28.6285263973535], [39.78526139508507, 28.522257383742915], [39.70175452022684, 28.419014203024574], [39.61476182457467, 28.31879685519849], [39.524283308128545, 28.22160534026465], [39.430318970888464, 28.12743965822306], [39.33286881285444, 28.036299809073725], [39.231932834026466, 27.948185792816634], [39.127511034404534, 27.863097609451795], [39.01960341398866, 27.781035258979205], [38.90820997277883, 27.701998741398867], [38.79333071077505, 27.625988056710778], [38.674965627977315, 27.553003204914933], [38.55311472438564, 27.483044186011345], [38.427778, 27.416111]],
+                {"bubblingMouseEvents": true, "color": "#6aa84f", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#6aa84f", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.25}
+            ).addTo(feature_group_451952ab82fc97f800f789c87e2a44c0);
+        
+    
+            poly_line_d00040bb5d581d0be9e1b7cd15264d39.bindTooltip(
+                `<div>
+                     <b>Nicaea → Nymphaion</b><br>Component 3 · 1 document(s)<br><br>• Theodore I Laskaris → Henry, Emperor of the Latin Empire (1×)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            poly_line_d00040bb5d581d0be9e1b7cd15264d39.setText(
+                "\u25ba",
+                {"attributes": {"fill": "#6aa84f", "font-size": "14"}, "below": false, "center": true, "offset": 5, "orientation": 0, "repeat": false}
+            );
+        
+    
+            var poly_line_7dfe7c0730a8946169cb070789c60b49 = L.polyline(
+                [[40.42861, 29.72111], [40.271803287712665, 29.798681167863897], [40.1191704899811, 29.880109506238185], [39.97071160680529, 29.965395015122873], [39.826426638185254, 30.054537694517958], [39.68631558412098, 30.14753754442344], [39.55037844461247, 30.244394564839315], [39.41861521965973, 30.34510875576559], [39.29102590926276, 30.449680117202266], [39.16761051342155, 30.558108649149336], [39.04836903213611, 30.67039435160681], [38.93330146540643, 30.78653722457467], [38.822407813232516, 30.906537268052926], [38.715688075614366, 31.030394482041586], [38.61314225255199, 31.158108866540637], [38.51477034404537, 31.289680421550095], [38.42057235009452, 31.42510914706994], [38.33054827069944, 31.564395043100184], [38.24469810586011, 31.70753810964083], [38.16302185557656, 31.854538346691868], [38.08551951984877, 32.00539575425331], [38.01219109867675, 32.16011033232514], [37.943036592060494, 32.31868208090737], [37.878056, 32.481111]],
+                {"bubblingMouseEvents": true, "color": "#6aa84f", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#6aa84f", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.25}
+            ).addTo(feature_group_451952ab82fc97f800f789c87e2a44c0);
+        
+    
+            poly_line_7dfe7c0730a8946169cb070789c60b49.bindTooltip(
+                `<div>
+                     <b>Nicaea → Konya</b><br>Component 3 · 1 document(s)<br><br>• Theodore I Laskaris → Ghiyāth al-Dīn Kaykhusraw I (1×)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            poly_line_7dfe7c0730a8946169cb070789c60b49.setText(
+                "\u25ba",
+                {"attributes": {"fill": "#6aa84f", "font-size": "14"}, "below": false, "center": true, "offset": 5, "orientation": 0, "repeat": false}
+            );
+        
+    
+            var poly_line_1b7bc29818a50a78d9b2fe021f1e46e0 = L.polyline(
+                [[41.284722, 31.414722], [41.2270245799622, 31.19334362533082], [41.16328011115313, 30.976285770888474], [41.09348859357278, 30.76354843667297], [41.017650027221165, 30.555131622684307], [40.9357644120983, 30.3510353289225], [40.84783174820416, 30.15125955538752], [40.75385203553875, 29.955804302079393], [40.65382527410208, 29.76466956899811], [40.54775146389414, 29.57785535614367], [40.43563060491494, 29.395361663516073], [40.317462697164466, 29.217188491115316], [40.193247740642725, 29.0433358389414], [40.06298573534972, 28.873803706994327], [39.92667668128544, 28.7085920952741], [39.78432057844991, 28.547701003780716], [39.6359174268431, 28.391130432514174], [39.48146722646503, 28.23888038147448], [39.32096997731569, 28.090950850661624], [39.15442567939509, 27.947341840075616], [38.981834332703215, 27.80805334971645], [38.803195937240076, 27.67308537958412], [38.61851049300567, 27.54243792967864], [38.427778, 27.416111]],
+                {"bubblingMouseEvents": true, "color": "#6aa84f", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#6aa84f", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4.531088913245535}
+            ).addTo(feature_group_451952ab82fc97f800f789c87e2a44c0);
+        
+    
+            poly_line_1b7bc29818a50a78d9b2fe021f1e46e0.bindTooltip(
+                `<div>
+                     <b>Herakleia Pontike → Nymphaion</b><br>Component 3 · 3 document(s)<br><br>• David Megas Komnenos → Henry, Emperor of the Latin Empire (3×)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            poly_line_1b7bc29818a50a78d9b2fe021f1e46e0.setText(
+                "\u25ba",
+                {"attributes": {"fill": "#6aa84f", "font-size": "16"}, "below": false, "center": true, "offset": 6, "orientation": 0, "repeat": false}
+            );
+        
+    
+            feature_group_451952ab82fc97f800f789c87e2a44c0.addTo(map_9f62e05a24522d01fa64e80faf1beec9);
+        
+    
+            var feature_group_2e2527d6beeba6b407404fb2030f365e = L.featureGroup(
+                {}
+            );
+        
+    
+            var poly_line_f9c767f0a7b727e7767598974f42a2f7 = L.polyline(
+                [[41.00296115, 39.719717703], [40.69732929082533, 39.499699820771276], [40.39005348544915, 39.282496853911155], [40.081133733871454, 39.068108802419665], [39.770570036092245, 38.856535666296786], [39.45836239211153, 38.64777744554254], [39.14451080192929, 38.44183414015689], [38.82901526554556, 38.238705750139886], [38.5118757829603, 38.038392275491496], [38.19309235417353, 37.84089371621172], [37.87266497918526, 37.646210072300576], [37.55059365799546, 37.45434134375804], [37.226878390604156, 37.265287530584125], [36.901519177011345, 37.079048632778836], [36.574516017217015, 36.89562465034216], [36.245868911221166, 36.7150155832741], [35.91557785902381, 36.53722143157467], [35.58364286062495, 36.36224219524386], [35.25006391602457, 36.19007787428166], [34.914841025222685, 36.02072846868809], [34.57797418821929, 35.854193978463144], [34.23946340501437, 35.69047440360681], [33.89930867560794, 35.529569744119094], [33.55751, 35.37148]],
+                {"bubblingMouseEvents": true, "color": "#7A7A7A", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#7A7A7A", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.25}
+            ).addTo(feature_group_2e2527d6beeba6b407404fb2030f365e);
+        
+    
+            poly_line_f9c767f0a7b727e7767598974f42a2f7.bindTooltip(
+                `<div>
+                     <b>Trebizond → Sidon</b><br>other · 1 document(s)<br><br>• Manuel I Megas Komnenos → Louis IX of France (1×)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            poly_line_f9c767f0a7b727e7767598974f42a2f7.setText(
+                "\u25ba",
+                {"attributes": {"fill": "#7A7A7A", "font-size": "14"}, "below": false, "center": true, "offset": 5, "orientation": 0, "repeat": false}
+            );
+        
+    
+            var poly_line_b5716ca18ae3fdbcccb2bf7f27c10fb5 = L.polyline(
+                [[33.55751, 35.37148], [33.863141859174675, 35.59149788222873], [34.170417664550854, 35.80870084908885], [34.479337416128544, 36.02308890058034], [34.789901113907746, 36.234662036703206], [35.102108757888466, 36.443420257457475], [35.4159603480707, 36.6493635628431], [35.73145588445444, 36.85249195286011], [36.048595367039695, 37.05280542750851], [36.36737879582647, 37.250303986788275], [36.68780617081475, 37.44498763069944], [37.009877492004534, 37.63685635924197], [37.33359275939584, 37.82591017241588], [37.65895197298866, 38.01214907022117], [37.98595513278299, 38.19557305265784], [38.31460223877883, 38.3761821197259], [38.64489329097618, 38.55397627142533], [38.97682828937505, 38.72895550775614], [39.310407233975425, 38.901119828718336], [39.64563012477731, 39.07046923431191], [39.98249696178072, 39.23700372453686], [40.32100774498563, 39.40072329939319], [40.66116247439206, 39.56162795888091], [41.00296115, 39.719717703]],
+                {"bubblingMouseEvents": true, "color": "#7A7A7A", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#7A7A7A", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.25}
+            ).addTo(feature_group_2e2527d6beeba6b407404fb2030f365e);
+        
+    
+            poly_line_b5716ca18ae3fdbcccb2bf7f27c10fb5.bindTooltip(
+                `<div>
+                     <b>Sidon → Trebizond</b><br>other · 1 document(s)<br><br>• Louis IX of France → Manuel I Megas Komnenos (1×)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            poly_line_b5716ca18ae3fdbcccb2bf7f27c10fb5.setText(
+                "\u25ba",
+                {"attributes": {"fill": "#7A7A7A", "font-size": "14"}, "below": false, "center": true, "offset": 5, "orientation": 0, "repeat": false}
+            );
+        
+    
+            var poly_line_586e7fb3506d9a33c4985ba0ba0aeb2b = L.polyline(
+                [[41.883333, 12.483333], [41.65039665519849, 13.46983585141777], [41.42615281209831, 14.457532779584124], [41.21060147069943, 15.446423784499055], [41.003742631001884, 16.43650886616257], [40.80557629300568, 17.42778802457467], [40.61610245671076, 18.420261259735348], [40.4353211221172, 19.41392857164461], [40.26323228922496, 20.408789960302457], [40.09983595803403, 21.404845425708885], [39.94513212854443, 22.402094967863896], [39.79912080075614, 23.400538586767485], [39.66180197466919, 24.400176282419658], [39.53317565028355, 25.401008054820416], [39.41324182759924, 26.403033903969757], [39.30200050661625, 27.406253829867676], [39.199451687334594, 28.41066783251418], [39.105595369754255, 29.416275911909263], [39.020431553875234, 30.42307806805293], [38.943960239697546, 31.431074300945177], [38.87618142722118, 32.44026461058601], [38.817095116446126, 33.450648996975424], [38.76670130737241, 34.462227460113425], [38.725, 35.475]],
+                {"bubblingMouseEvents": true, "color": "#7A7A7A", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#7A7A7A", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.25}
+            ).addTo(feature_group_2e2527d6beeba6b407404fb2030f365e);
+        
+    
+            poly_line_586e7fb3506d9a33c4985ba0ba0aeb2b.bindTooltip(
+                `<div>
+                     <b>Rome → Kaisareia</b><br>other · 1 document(s)<br><br>• Honorius III, Pope → Rusudan (1×)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            poly_line_586e7fb3506d9a33c4985ba0ba0aeb2b.setText(
+                "\u25ba",
+                {"attributes": {"fill": "#7A7A7A", "font-size": "14"}, "below": false, "center": true, "offset": 5, "orientation": 0, "repeat": false}
+            );
+        
+    
+            var poly_line_2749fd931571b322f71f074faaae870b = L.polyline(
+                [[38.46222, 27.16667], [38.53709183742912, 27.2859104120983], [38.61292943667297, 27.40440738752363], [38.68973279773157, 27.52216092627599], [38.767501920604914, 27.63917102835539], [38.84623680529301, 27.755437693761817], [38.92593745179584, 27.87096092249527], [39.00660386011342, 27.985740714555764], [39.08823603024575, 28.09977706994329], [39.170833962192816, 28.213069988657843], [39.254397655954634, 28.325619470699433], [39.33892711153119, 28.437425516068053], [39.42442232892249, 28.548488124763708], [39.51088330812854, 28.65880729678639], [39.59831004914934, 28.768383032136107], [39.68670255198488, 28.877215330812852], [39.776060816635166, 28.985304192816635], [39.86638484310019, 29.092649618147448], [39.95767463137996, 29.19925160680529], [40.04993018147447, 29.305110158790164], [40.14315149338374, 29.41022527410208], [40.23733856710775, 29.514596952741016], [40.332491402646504, 29.618225194706994], [40.42861, 29.72111]],
+                {"bubblingMouseEvents": true, "color": "#7A7A7A", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#7A7A7A", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3.25}
+            ).addTo(feature_group_2e2527d6beeba6b407404fb2030f365e);
+        
+    
+            poly_line_2749fd931571b322f71f074faaae870b.bindTooltip(
+                `<div>
+                     <b>Bare → Nicaea</b><br>other · 1 document(s)<br><br>• John III Doukas Vatatzes → Germanos II Patriarch of Constantinople (1×)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            poly_line_2749fd931571b322f71f074faaae870b.setText(
+                "\u25ba",
+                {"attributes": {"fill": "#7A7A7A", "font-size": "14"}, "below": false, "center": true, "offset": 5, "orientation": 0, "repeat": false}
+            );
+        
+    
+            feature_group_2e2527d6beeba6b407404fb2030f365e.addTo(map_9f62e05a24522d01fa64e80faf1beec9);
+        
+    
+            var feature_group_4cb99fa2305242f7f729ca8b0babf7fd = L.featureGroup(
+                {}
+            );
+        
+    
+            var circle_marker_fbdabd6ba7f794847869f9c54d3e2d6f = L.circleMarker(
+                [39.916667, 32.85],
+                {"bubblingMouseEvents": true, "color": "#8B1A1A", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#DC143C", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.202563076101743, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4cb99fa2305242f7f729ca8b0babf7fd);
+        
+    
+            circle_marker_fbdabd6ba7f794847869f9c54d3e2d6f.bindTooltip(
+                `<div>
+                     Ankara
+                 </div>`,
+                {"className": "location-label", "direction": "top", "offset": [0, -2.1607689228305227], "opacity": 1, "permanent": true, "sticky": false}
+            );
+        
+    
+            var circle_marker_a73577754ef7d7ecf05895c00dbca581 = L.circleMarker(
+                [37.878056, 32.481111],
+                {"bubblingMouseEvents": true, "color": "#8B1A1A", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#DC143C", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20.94637091472647, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4cb99fa2305242f7f729ca8b0babf7fd);
+        
+    
+            circle_marker_a73577754ef7d7ecf05895c00dbca581.bindTooltip(
+                `<div>
+                     Konya
+                 </div>`,
+                {"className": "location-label", "direction": "top", "offset": [0, -6.283911274417941], "opacity": 1, "permanent": true, "sticky": false}
+            );
+        
+    
+            var circle_marker_c5f948550648336318fc181bdbe73cd6 = L.circleMarker(
+                [38.479277, 28.031702],
+                {"bubblingMouseEvents": true, "color": "#8B1A1A", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#DC143C", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.202563076101743, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4cb99fa2305242f7f729ca8b0babf7fd);
+        
+    
+            circle_marker_c5f948550648336318fc181bdbe73cd6.bindTooltip(
+                `<div>
+                     Sardeis
+                 </div>`,
+                {"className": "location-label", "direction": "top", "offset": [0, -2.1607689228305227], "opacity": 1, "permanent": true, "sticky": false}
+            );
+        
+    
+            var circle_marker_efbe17076b49eabda1f99c90d4865261 = L.circleMarker(
+                [39.75, 37.016667],
+                {"bubblingMouseEvents": true, "color": "#8B1A1A", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#DC143C", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.547001962252292, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4cb99fa2305242f7f729ca8b0babf7fd);
+        
+    
+            circle_marker_efbe17076b49eabda1f99c90d4865261.bindTooltip(
+                `<div>
+                     Sivas
+                 </div>`,
+                {"className": "location-label", "direction": "top", "offset": [0, -2.8641005886756874], "opacity": 1, "permanent": true, "sticky": false}
+            );
+        
+    
+            var circle_marker_025f3c87acb8f5aef60661937069d6f9 = L.circleMarker(
+                [41.883333, 12.483333],
+                {"bubblingMouseEvents": true, "color": "#8B1A1A", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#DC143C", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.529108136578383, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4cb99fa2305242f7f729ca8b0babf7fd);
+        
+    
+            circle_marker_025f3c87acb8f5aef60661937069d6f9.bindTooltip(
+                `<div>
+                     Rome
+                 </div>`,
+                {"className": "location-label", "direction": "top", "offset": [0, -2.558732440973515], "opacity": 1, "permanent": true, "sticky": false}
+            );
+        
+    
+            var circle_marker_4f2b1c04c639c196e445850916eff8a7 = L.circleMarker(
+                [41.00296115, 39.719717703],
+                {"bubblingMouseEvents": true, "color": "#8B1A1A", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#DC143C", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.529108136578383, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4cb99fa2305242f7f729ca8b0babf7fd);
+        
+    
+            circle_marker_4f2b1c04c639c196e445850916eff8a7.bindTooltip(
+                `<div>
+                     Trebizond
+                 </div>`,
+                {"className": "location-label", "direction": "top", "offset": [0, -2.558732440973515], "opacity": 1, "permanent": true, "sticky": false}
+            );
+        
+    
+            var circle_marker_4811dca77b520e2d525aa4324276219a = L.circleMarker(
+                [47.211111, 102.85],
+                {"bubblingMouseEvents": true, "color": "#8B1A1A", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#DC143C", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.547001962252292, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4cb99fa2305242f7f729ca8b0babf7fd);
+        
+    
+            circle_marker_4811dca77b520e2d525aa4324276219a.bindTooltip(
+                `<div>
+                     Karakorum
+                 </div>`,
+                {"className": "location-label", "direction": "top", "offset": [0, -2.8641005886756874], "opacity": 1, "permanent": true, "sticky": false}
+            );
+        
+    
+            var circle_marker_6e8a47fcd736ccdfe67970d8f7074170 = L.circleMarker(
+                [41.284722, 31.414722],
+                {"bubblingMouseEvents": true, "color": "#8B1A1A", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#DC143C", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.547001962252292, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4cb99fa2305242f7f729ca8b0babf7fd);
+        
+    
+            circle_marker_6e8a47fcd736ccdfe67970d8f7074170.bindTooltip(
+                `<div>
+                     Herakleia Pontike
+                 </div>`,
+                {"className": "location-label", "direction": "top", "offset": [0, -2.8641005886756874], "opacity": 1, "permanent": true, "sticky": false}
+            );
+        
+    
+            var circle_marker_aa0f3762c2276dcd106b5fb35b948b87 = L.circleMarker(
+                [38.427778, 27.416111],
+                {"bubblingMouseEvents": true, "color": "#8B1A1A", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#DC143C", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.529108136578383, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4cb99fa2305242f7f729ca8b0babf7fd);
+        
+    
+            circle_marker_aa0f3762c2276dcd106b5fb35b948b87.bindTooltip(
+                `<div>
+                     Nymphaion
+                 </div>`,
+                {"className": "location-label", "direction": "top", "offset": [0, -2.558732440973515], "opacity": 1, "permanent": true, "sticky": false}
+            );
+        
+    
+            var circle_marker_0b59530afc2619ffb780f0452fcfb6b7 = L.circleMarker(
+                [39.746389, 39.491389],
+                {"bubblingMouseEvents": true, "color": "#8B1A1A", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#DC143C", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.547001962252292, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4cb99fa2305242f7f729ca8b0babf7fd);
+        
+    
+            circle_marker_0b59530afc2619ffb780f0452fcfb6b7.bindTooltip(
+                `<div>
+                     Keltzene
+                 </div>`,
+                {"className": "location-label", "direction": "top", "offset": [0, -2.8641005886756874], "opacity": 1, "permanent": true, "sticky": false}
+            );
+        
+    
+            var circle_marker_4a8e53e308b8cda7b06430eb978ee6f3 = L.circleMarker(
+                [38.348611, 38.319444],
+                {"bubblingMouseEvents": true, "color": "#8B1A1A", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#DC143C", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.202563076101743, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4cb99fa2305242f7f729ca8b0babf7fd);
+        
+    
+            circle_marker_4a8e53e308b8cda7b06430eb978ee6f3.bindTooltip(
+                `<div>
+                     Melitene
+                 </div>`,
+                {"className": "location-label", "direction": "top", "offset": [0, -2.1607689228305227], "opacity": 1, "permanent": true, "sticky": false}
+            );
+        
+    
+            var circle_marker_ea8eded694dd23607f10b745bb3f61bd = L.circleMarker(
+                [38.083333, 46.283333],
+                {"bubblingMouseEvents": true, "color": "#8B1A1A", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#DC143C", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 16.403473458920846, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4cb99fa2305242f7f729ca8b0babf7fd);
+        
+    
+            circle_marker_ea8eded694dd23607f10b745bb3f61bd.bindTooltip(
+                `<div>
+                     Tabriz
+                 </div>`,
+                {"className": "location-label", "direction": "top", "offset": [0, -4.921042037676254], "opacity": 1, "permanent": true, "sticky": false}
+            );
+        
+    
+            var circle_marker_cb86b15687b543866160b63a30392a5d = L.circleMarker(
+                [38.35232, 35.08873],
+                {"bubblingMouseEvents": true, "color": "#8B1A1A", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#DC143C", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.529108136578383, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4cb99fa2305242f7f729ca8b0babf7fd);
+        
+    
+            circle_marker_cb86b15687b543866160b63a30392a5d.bindTooltip(
+                `<div>
+                     Develikarahisar
+                 </div>`,
+                {"className": "location-label", "direction": "top", "offset": [0, -2.558732440973515], "opacity": 1, "permanent": true, "sticky": false}
+            );
+        
+    
+            var circle_marker_5b088bb885d6014d153c3b1faf0291b4 = L.circleMarker(
+                [34.79922, 48.51456],
+                {"bubblingMouseEvents": true, "color": "#8B1A1A", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#DC143C", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.202563076101743, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4cb99fa2305242f7f729ca8b0babf7fd);
+        
+    
+            circle_marker_5b088bb885d6014d153c3b1faf0291b4.bindTooltip(
+                `<div>
+                     Hamadan
+                 </div>`,
+                {"className": "location-label", "direction": "top", "offset": [0, -2.1607689228305227], "opacity": 1, "permanent": true, "sticky": false}
+            );
+        
+    
+            var circle_marker_d959a720bcd5bacfbda8a72bf997a1cd = L.circleMarker(
+                [36.888611, 30.703333],
+                {"bubblingMouseEvents": true, "color": "#8B1A1A", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#DC143C", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.529108136578383, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4cb99fa2305242f7f729ca8b0babf7fd);
+        
+    
+            circle_marker_d959a720bcd5bacfbda8a72bf997a1cd.bindTooltip(
+                `<div>
+                     Attaleia
+                 </div>`,
+                {"className": "location-label", "direction": "top", "offset": [0, -2.558732440973515], "opacity": 1, "permanent": true, "sticky": false}
+            );
+        
+    
+            var circle_marker_57a1fd5808dd05aa5000536cba1acfa0 = L.circleMarker(
+                [37.45517, 35.81573],
+                {"bubblingMouseEvents": true, "color": "#8B1A1A", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#DC143C", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.547001962252292, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4cb99fa2305242f7f729ca8b0babf7fd);
+        
+    
+            circle_marker_57a1fd5808dd05aa5000536cba1acfa0.bindTooltip(
+                `<div>
+                     Sis
+                 </div>`,
+                {"className": "location-label", "direction": "top", "offset": [0, -2.8641005886756874], "opacity": 1, "permanent": true, "sticky": false}
+            );
+        
+    
+            var circle_marker_a992523f7df1350279d6b804f1a21844 = L.circleMarker(
+                [32.46367, 44.41963],
+                {"bubblingMouseEvents": true, "color": "#8B1A1A", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#DC143C", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.202563076101743, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4cb99fa2305242f7f729ca8b0babf7fd);
+        
+    
+            circle_marker_a992523f7df1350279d6b804f1a21844.bindTooltip(
+                `<div>
+                     Hilla
+                 </div>`,
+                {"className": "location-label", "direction": "top", "offset": [0, -2.1607689228305227], "opacity": 1, "permanent": true, "sticky": false}
+            );
+        
+    
+            var circle_marker_9827df034504927f240b68d59b95428e = L.circleMarker(
+                [38.37255, 34.02537],
+                {"bubblingMouseEvents": true, "color": "#8B1A1A", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#DC143C", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.202563076101743, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4cb99fa2305242f7f729ca8b0babf7fd);
+        
+    
+            circle_marker_9827df034504927f240b68d59b95428e.bindTooltip(
+                `<div>
+                     Aksaray
+                 </div>`,
+                {"className": "location-label", "direction": "top", "offset": [0, -2.1607689228305227], "opacity": 1, "permanent": true, "sticky": false}
+            );
+        
+    
+            var circle_marker_942e0ace043a4f2073fc7f1dc2f384ad = L.circleMarker(
+                [36.111139683, 42.449822203],
+                {"bubblingMouseEvents": true, "color": "#8B1A1A", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#DC143C", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.202563076101743, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4cb99fa2305242f7f729ca8b0babf7fd);
+        
+    
+            circle_marker_942e0ace043a4f2073fc7f1dc2f384ad.bindTooltip(
+                `<div>
+                     Diyār Rabīʽa
+                 </div>`,
+                {"className": "location-label", "direction": "top", "offset": [0, -2.1607689228305227], "opacity": 1, "permanent": true, "sticky": false}
+            );
+        
+    
+            var circle_marker_71313d0e5a075c59bd3ce97104218aeb = L.circleMarker(
+                [37.921333985, 36.429975277],
+                {"bubblingMouseEvents": true, "color": "#8B1A1A", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#DC143C", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.529108136578383, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4cb99fa2305242f7f729ca8b0babf7fd);
+        
+    
+            circle_marker_71313d0e5a075c59bd3ce97104218aeb.bindTooltip(
+                `<div>
+                     Čanči / Ճանճի
+                 </div>`,
+                {"className": "location-label", "direction": "top", "offset": [0, -2.558732440973515], "opacity": 1, "permanent": true, "sticky": false}
+            );
+        
+    
+            var circle_marker_0cc22d7da23812a4407cde6e197a7eb3 = L.circleMarker(
+                [33.509722, 36.309167],
+                {"bubblingMouseEvents": true, "color": "#8B1A1A", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#DC143C", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.547001962252292, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4cb99fa2305242f7f729ca8b0babf7fd);
+        
+    
+            circle_marker_0cc22d7da23812a4407cde6e197a7eb3.bindTooltip(
+                `<div>
+                     Damaskus
+                 </div>`,
+                {"className": "location-label", "direction": "top", "offset": [0, -2.8641005886756874], "opacity": 1, "permanent": true, "sticky": false}
+            );
+        
+    
+            var circle_marker_a683f98e046081773dd4d81eb7cc9fd3 = L.circleMarker(
+                [35.173280665, 33.358622662],
+                {"bubblingMouseEvents": true, "color": "#8B1A1A", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#DC143C", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.161148740394328, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4cb99fa2305242f7f729ca8b0babf7fd);
+        
+    
+            circle_marker_a683f98e046081773dd4d81eb7cc9fd3.bindTooltip(
+                `<div>
+                     Lefkosia
+                 </div>`,
+                {"className": "location-label", "direction": "top", "offset": [0, -3.348344622118298], "opacity": 1, "permanent": true, "sticky": false}
+            );
+        
+    
+            var circle_marker_02f4c0f1c1eb2c37eca0a36bf262f1dc = L.circleMarker(
+                [33.55751, 35.37148],
+                {"bubblingMouseEvents": true, "color": "#8B1A1A", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#DC143C", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.202563076101743, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4cb99fa2305242f7f729ca8b0babf7fd);
+        
+    
+            circle_marker_02f4c0f1c1eb2c37eca0a36bf262f1dc.bindTooltip(
+                `<div>
+                     Sidon
+                 </div>`,
+                {"className": "location-label", "direction": "top", "offset": [0, -2.1607689228305227], "opacity": 1, "permanent": true, "sticky": false}
+            );
+        
+    
+            var circle_marker_2d7846fe98b9d6bcd26a71df7c9ab1c3 = L.circleMarker(
+                [37.39206, 46.23909],
+                {"bubblingMouseEvents": true, "color": "#8B1A1A", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#DC143C", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.161148740394328, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4cb99fa2305242f7f729ca8b0babf7fd);
+        
+    
+            circle_marker_2d7846fe98b9d6bcd26a71df7c9ab1c3.bindTooltip(
+                `<div>
+                     Marāgha
+                 </div>`,
+                {"className": "location-label", "direction": "top", "offset": [0, -3.348344622118298], "opacity": 1, "permanent": true, "sticky": false}
+            );
+        
+    
+            var circle_marker_728768aa8aa70d1541f2d04391250044 = L.circleMarker(
+                [33.299801069, 44.384253501],
+                {"bubblingMouseEvents": true, "color": "#8B1A1A", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#DC143C", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.473185457363234, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4cb99fa2305242f7f729ca8b0babf7fd);
+        
+    
+            circle_marker_728768aa8aa70d1541f2d04391250044.bindTooltip(
+                `<div>
+                     Baghdad
+                 </div>`,
+                {"className": "location-label", "direction": "top", "offset": [0, -3.74195563720897], "opacity": 1, "permanent": true, "sticky": false}
+            );
+        
+    
+            var circle_marker_533a9a9e64df64c8dea2438b91f09f78 = L.circleMarker(
+                [39.909722, 41.275556],
+                {"bubblingMouseEvents": true, "color": "#8B1A1A", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#DC143C", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.547001962252292, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4cb99fa2305242f7f729ca8b0babf7fd);
+        
+    
+            circle_marker_533a9a9e64df64c8dea2438b91f09f78.bindTooltip(
+                `<div>
+                     Theodosioupolis
+                 </div>`,
+                {"className": "location-label", "direction": "top", "offset": [0, -2.8641005886756874], "opacity": 1, "permanent": true, "sticky": false}
+            );
+        
+    
+            var circle_marker_f93df001749829e7931383215ea6f6ac = L.circleMarker(
+                [38.725, 35.475],
+                {"bubblingMouseEvents": true, "color": "#8B1A1A", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#DC143C", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15.547005383792515, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4cb99fa2305242f7f729ca8b0babf7fd);
+        
+    
+            circle_marker_f93df001749829e7931383215ea6f6ac.bindTooltip(
+                `<div>
+                     Kaisareia
+                 </div>`,
+                {"className": "location-label", "direction": "top", "offset": [0, -4.664101615137755], "opacity": 1, "permanent": true, "sticky": false}
+            );
+        
+    
+            var circle_marker_9edcbca1ad72ecca754b0c03700a223f = L.circleMarker(
+                [40.42861, 29.72111],
+                {"bubblingMouseEvents": true, "color": "#8B1A1A", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#DC143C", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 24.0, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4cb99fa2305242f7f729ca8b0babf7fd);
+        
+    
+            circle_marker_9edcbca1ad72ecca754b0c03700a223f.bindTooltip(
+                `<div>
+                     Nicaea
+                 </div>`,
+                {"className": "location-label", "direction": "top", "offset": [0, -7.199999999999999], "opacity": 1, "permanent": true, "sticky": false}
+            );
+        
+    
+            var circle_marker_9e55464a4764b733142dc0c5c7f0b8c1 = L.circleMarker(
+                [36.54375, 31.99982],
+                {"bubblingMouseEvents": true, "color": "#8B1A1A", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#DC143C", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.202563076101743, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4cb99fa2305242f7f729ca8b0babf7fd);
+        
+    
+            circle_marker_9e55464a4764b733142dc0c5c7f0b8c1.bindTooltip(
+                `<div>
+                     Alanya
+                 </div>`,
+                {"className": "location-label", "direction": "top", "offset": [0, -2.1607689228305227], "opacity": 1, "permanent": true, "sticky": false}
+            );
+        
+    
+            var circle_marker_13a22efee840ddaecc2849ff2766ba4a = L.circleMarker(
+                [36.532350924, 31.989652536],
+                {"bubblingMouseEvents": true, "color": "#8B1A1A", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#DC143C", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.547001962252292, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4cb99fa2305242f7f729ca8b0babf7fd);
+        
+    
+            circle_marker_13a22efee840ddaecc2849ff2766ba4a.bindTooltip(
+                `<div>
+                     Kalon Oros
+                 </div>`,
+                {"className": "location-label", "direction": "top", "offset": [0, -2.8641005886756874], "opacity": 1, "permanent": true, "sticky": false}
+            );
+        
+    
+            var circle_marker_966f0641900d711556526ec8268f335f = L.circleMarker(
+                [38.46222, 27.16667],
+                {"bubblingMouseEvents": true, "color": "#8B1A1A", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#DC143C", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14.127393670836666, "stroke": true, "weight": 1}
+            ).addTo(feature_group_4cb99fa2305242f7f729ca8b0babf7fd);
+        
+    
+            circle_marker_966f0641900d711556526ec8268f335f.bindTooltip(
+                `<div>
+                     Bare
+                 </div>`,
+                {"className": "location-label", "direction": "top", "offset": [0, -4.238218101250999], "opacity": 1, "permanent": true, "sticky": false}
+            );
+        
+    
+            feature_group_4cb99fa2305242f7f729ca8b0babf7fd.addTo(map_9f62e05a24522d01fa64e80faf1beec9);
+        
+    
+            var layer_control_b3d184c3461795e55b514550f9b7dd8a_layers = {
+                base_layers : {
+                    "Terrain map" : tile_layer_e0cf51cdce89b6aa4c761857658955f1,
+                },
+                overlays :  {
+                    "\u003cspan style=\"display:inline-block;width:22px;height:4px;background:#ffab40;vertical-align:middle;margin-right:6px\"\u003e\u003c/span\u003e\u003cb\u003eComponent 1\u003c/b\u003e \u00b7 Abaqa Khan" : feature_group_e8389aa01cc5ad7a9198fdcfe4bc4b19,
+                    "\u003cspan style=\"display:inline-block;width:22px;height:4px;background:#c27ba0;vertical-align:middle;margin-right:6px\"\u003e\u003c/span\u003e\u003cb\u003eComponent 2\u003c/b\u003e \u00b7 \u02bdAl\u0101\u02bc al-D\u012bn Kayqub\u0101d I" : feature_group_b75f40ace96d3cbc80b4ea225e45f1dc,
+                    "\u003cspan style=\"display:inline-block;width:22px;height:4px;background:#6aa84f;vertical-align:middle;margin-right:6px\"\u003e\u003c/span\u003e\u003cb\u003eComponent 3\u003c/b\u003e \u00b7 Theodore I Laskaris" : feature_group_451952ab82fc97f800f789c87e2a44c0,
+                    "\u003cspan style=\"display:inline-block;width:22px;height:4px;background:#7A7A7A;vertical-align:middle;margin-right:6px\"\u003e\u003c/span\u003eother documents" : feature_group_2e2527d6beeba6b407404fb2030f365e,
+                    "Places" : feature_group_4cb99fa2305242f7f729ca8b0babf7fd,
+                },
+            };
+            let layer_control_b3d184c3461795e55b514550f9b7dd8a = L.control.layers(
+                layer_control_b3d184c3461795e55b514550f9b7dd8a_layers.base_layers,
+                layer_control_b3d184c3461795e55b514550f9b7dd8a_layers.overlays,
+                {"autoZIndex": true, "collapsed": false, "position": "topright"}
+            ).addTo(map_9f62e05a24522d01fa64e80faf1beec9);
+
+        
+</script>
+</html>
